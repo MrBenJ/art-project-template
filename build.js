@@ -21,7 +21,7 @@ function init() {
     $('[href^="/static"], [src^="/static"]').each( (idx, el) => {
       if (typeof $(el).attr() === 'object') {{
         Object.entries($(el).attr()).forEach( ([attr, val]) => {
-          if (val.includes('/static/')) {
+          if (val.startsWith('/static/')) {
             $(el).attr(attr, val.replace('/static/', './'));
           }
         });
